@@ -1,0 +1,8 @@
+langchain
+langchain-community
+pillow
+pymupdf
+python-dotenv
+google-generativeai
+langchain-core
+langchain-cohere
