@@ -32,13 +32,13 @@ Create a `.env` file in the project root with your API keys:
 ```
 OPENROUTER_API_KEY=your_openrouter_api_key_here
 OPENROUTER_URL=https://openrouter.ai/v1
-MODEL_NAME=google/gemini-2.0-flash-001
+MODEL_NAME=google/gemini-2.0-flash-001  # For image summarization
 ```
 
 **Note:** `.env`, `extracted_images/`, and `training_documents/` are included in `.gitignore` and will not be committed to version control.
 
 ## Usage
-1. Place your PDF file (e.g., `1706.03762v7.pdf`) in the project directory.
+1. Place your PDF file in the `training_documents/` directory.
 2. Run the Jupyter notebook `notebook.ipynb` step by step:
     - Extracts text and images from the PDF.
     - Summarizes images/tables using OpenRouter (via Gemini API).
@@ -50,11 +50,10 @@ MODEL_NAME=google/gemini-2.0-flash-001
 
 ## Project Structure
 ```
-├── 1706.03762v7.pdf
-├── extracted_images/
-│   └── image_X_Y.png
 ├── training_documents/
-│   └── ...
+│   └── your_paper.pdf  # Place your PDFs here
+├── extracted_images/
+│   └── image_X_Y.png   # Extracted figures and tables
 ├── notebook.ipynb
 ├── requirements.txt
 ├── .env  # (not committed)
@@ -67,6 +66,7 @@ MODEL_NAME=google/gemini-2.0-flash-001
 - The `extracted_images/` and `training_documents/` folders are ignored by git and are safe for storing generated or experimental data.
 - Document splits and embeddings are handled by Sentence Transformers (HuggingFace). LLM-based image summarization and QA are handled through OpenRouter.
 - OpenRouter is used to access both Gemini and other LLMs without dealing with individual API quotas and rate limits.
+- For best results, ensure your PDF documents are text-searchable and images are of good quality.
 
 ## License
 MIT License
