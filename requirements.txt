@@ -1,8 +1,12 @@
 langchain
 langchain-community
+langchain-core
+langchain-huggingface
 pillow
 pymupdf
 python-dotenv
-google-generativeai
-langchain-core
-langchain-cohere
+sentence-transformers
+chromadb
+openai>=1.0.0  
+torch  
+transformers  
